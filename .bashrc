@@ -48,3 +48,4 @@ alias vim="nvim"
 alias brave='/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=brave --file-forwarding com.brave.Browser'
 afetch
 alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+alias battery='upower -i /org/freedesktop/UPower/devices/battery_BAT0'

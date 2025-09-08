@@ -22,8 +22,11 @@ vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
 -- sometimes in insert mode, control-c doesn't exactly work like escape
 vim.keymap.set("i", "<C-c>", "<Esc>")
 
-vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
-vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
+-- move across split windows/buffer in vim
+vim.keymap.set("n", "<C-h>", "<C-w>h")
+vim.keymap.set("n", "<C-l>", "<C-w>l")
+vim.keymap.set("n", "<C-j>", "<C-w>j")
+vim.keymap.set("n", "<C-k>", "<C-w>k")
 
 -- What the heck is Ex mode?
 vim.keymap.set("n", "Q", "<nop>")
