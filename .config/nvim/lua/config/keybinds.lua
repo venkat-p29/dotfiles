@@ -4,6 +4,9 @@ vim.keymap.set("n", "<leader>cd", vim.cmd.Ex)
 vim.keymap.set("i", "jj", "<Esc>")
 vim.keymap.set({ "n", "v", "o" }, "H", "^")
 vim.keymap.set({ "n", "v", "o" }, "L", "$")
+vim.keymap.set("n", "<C-a>", "ggVG")
+vim.keymap.set("n", "<leader>w", ":w<CR>")
+vim.keymap.set("n", "<leader>q", ":q<CR>")
 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv") -- Alt Up/Down in vscode
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")

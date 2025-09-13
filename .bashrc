@@ -35,17 +35,27 @@ reset=$(tput sgr0);
 PS1="\[${bold}\]\n";
 PS1+="\[${orange}\]\u";   # username
 PS1+="\[${white}\]@";
-PS1+="\[${yellow}\]\h:";   # host
+PS1+="\[${yellow}\]\h: ";   # host
 PS1+="\[${green}\]\W";    # working directory
 PS1+="\n";
 PS1+="\[${green}\]\\$ \[${reset}\]";  # '$' (and reset color)
 export PS1;
 
+export EDITOR="nvim"
 # Some alias I use
 alias cat="bat"
-alias sysu="sudo dnf upgrade"
+alias sysu="sudo dnf upgrade -y"
 alias vim="nvim"
 alias brave='/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=brave --file-forwarding com.brave.Browser'
 afetch
 alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias battery='upower -i /org/freedesktop/UPower/devices/battery_BAT0'
+
+# Yazi
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	yazi "$@" --cwd-file="$tmp"
+	IFS= read -r -d '' cwd < "$tmp"
+	[ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
+	rm -f -- "$tmp"
+}
